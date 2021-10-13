@@ -1,25 +1,30 @@
 <template>
-  <div id="app">
+  <div id="app" @mouseup="stopRotate">
     <div class="knob">
-      <slider />
+      <knob @rotate="rotateKnob" />
     </div>
   </div>
 </template>
 
 <script>
-import slider from './components/HelloWorld'
+import knob from './components/v-knob.vue'
 
 export default {
   name: 'App',
   components: {
-    slider
+    knob
   },
   data () {
     return {
-      range: {
-        high: null,
-        low: null
-      }
+      targetInit: null,
+      targetSupport: null
+    }
+  },
+  methods: {
+    rotateKnob () {
+      this.targetInit = document.querySelector('.runner')
+      this.targetSupport = document.querySelector('#app')
+      console.log(this.targetInit)
     }
   }
 }
@@ -27,7 +32,7 @@ export default {
 
 <style>
 #app {
-  width: 128px;
+  width: 100%;
   height: 128px;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -35,10 +40,5 @@ export default {
   text-align: center;
   background-color: #090909;
   margin: 60px auto;
-}
-.knob {
-  width: 128px;
-  height: 128px;
-  background-image: url('./assets/knob-bg.png');
 }
 </style>
