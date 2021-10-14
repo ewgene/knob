@@ -1,6 +1,6 @@
 <template>
-  <div id="app" @mouseup="stopRotate">
-    <div class="knob">
+  <div id="app">
+    <div class="wrapper">
       <knob @rotate="rotateKnob" />
     </div>
   </div>

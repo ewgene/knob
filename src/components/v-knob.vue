@@ -1,6 +1,6 @@
 <template>
-  <div class="knob" :style="{ 'background-image': 'url(./knob-full.png)'}" @mousedown="rotateKnob">
-    <div class="runner" :style="{ 'background-image': 'url(./knob-full.png)'}">
+  <div class="knob" :style="knobBack" @mousedown="rotateKnob">
+    <div class="runner">
     </div>
   </div>
 </template>
@@ -38,12 +38,19 @@ export default {
     return {
       targetInit: null,
       targetSupport: null,
-      active: false
+      active: false,
     }
   },
   methods: {
     rotateKnob () {
       this.$emit('rotate')
+    }
+  },
+  computed: {
+    knobBack() {
+      return {
+        backgroundImage: require('../assets/knob-bg.png')
+      }
     }
   }
 }
@@ -54,9 +61,11 @@ export default {
     width: 128px;
     height: 128px;
     margin: 0 auto;
+    background-image: url('../assets/knob-bg.png');
   }
   .runner {
     width: 128px;
     height: 128px;
+    background-image: url('../assets/knob-full.png');    
   }
 </style>
