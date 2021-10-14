@@ -24,7 +24,7 @@ export default {
     rotateKnob () {
       this.targetInit = document.querySelector('.runner')
       this.targetSupport = document.querySelector('#app')
-      console.log(this.targetInit)
+      console.log(this.targetSupport)
     }
   }
 }

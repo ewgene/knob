@@ -1,6 +1,6 @@
 <template>
   <div class="knob" :style="knobBack" @mousedown="rotateKnob">
-    <div class="runner">
+    <div class="runner" :style="knobRunner">
     </div>
   </div>
 </template>
@@ -50,6 +50,11 @@ export default {
     knobBack() {
       return {
         backgroundImage: require('../assets/knob-bg.png')
+      }
+    },
+    knobRunner() {
+      return {
+        backgroundImage: require('../assets/knob-full.png')
       }
     }
   }
